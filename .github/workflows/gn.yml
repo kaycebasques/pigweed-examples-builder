@@ -10,6 +10,6 @@ jobs:
       - name: download
         run: curl -L0 https://storage.googleapis.com/pigweed-docs-try/8773289810928361121/_static/gn.zip
       - name: unzip
-        run: unzip gn.zip
+        run: unzip gn.zip -d gn
       - name: ls
         run: ls gn
