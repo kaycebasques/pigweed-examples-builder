@@ -10,7 +10,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
       - name: download
-        run: curl -o ${{github.workspace}}/gn.zip https://storage.googleapis.com/pigweed-docs-try/8773289810928361121/_static/gn.zip
+        run: curl -o ${{github.workspace}}/gn.zip https://storage.googleapis.com/pigweed-docs-try/8773288279406328129/_static/gn.zip
       - name: unzip
         run: unzip ${{github.workspace}}/gn.zip -d ${{github.workspace}}/gn
       - name: ls
