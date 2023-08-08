@@ -13,5 +13,11 @@ jobs:
         run: curl -o ${{github.workspace}}/gn.zip https://storage.googleapis.com/pigweed-docs-try/8773288279406328129/_static/gn.zip
       - name: unzip
         run: unzip ${{github.workspace}}/gn.zip -d ${{github.workspace}}/gn
-      - name: ls
-        run: ls ${{github.workspace}}/gn
+      - name: build
+        run: |
+          cd ${{github.workspace}}/gn
+          git submodule update --init --recursive
+          source bootstrap.sh
+          pw package install pico_sdk
+          gn gen out
+          ninja -C out
