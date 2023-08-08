@@ -7,9 +7,11 @@ jobs:
   get_started:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout
+        uses: actions/checkout@v3
       - name: download
-        run: curl -L0 https://storage.googleapis.com/pigweed-docs-try/8773289810928361121/_static/gn.zip
+        run: curl -o ${{github.workspace}}/gn.zip https://storage.googleapis.com/pigweed-docs-try/8773289810928361121/_static/gn.zip
       - name: unzip
-        run: unzip gn.zip -d gn
+        run: unzip ${{github.workspace}}/gn.zip -d ${{github.workspace}}/gn
       - name: ls
-        run: ls gn
+        run: ls ${{github.workspace}}/gn
