@@ -16,6 +16,10 @@ jobs:
       - name: build
         run: |
           cd ${{github.workspace}}/gn
+          rm .gitmodules
+          git submodule add https://pigweed.googlesource.com/pigweed/pigweed third_party/pigweed
+          git submodule add https://pigweed.googlesource.com/third_party/github/nanopb/nanopb third_party/nanopb
+          git submodule add https://pigweed.googlesource.com/third_party/github/FreeRTOS/FreeRTOS-Kernel third_party/freertos
           git submodule update --init --recursive
           source bootstrap.sh
           pw package install pico_sdk
