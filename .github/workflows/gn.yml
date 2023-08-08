@@ -17,6 +17,8 @@ jobs:
         run: |
           cd ${{github.workspace}}/gn
           rm .gitmodules
+          touch .gitmodules
+          rm -rf third_party
           git submodule add https://pigweed.googlesource.com/pigweed/pigweed third_party/pigweed
           git submodule add https://pigweed.googlesource.com/third_party/github/nanopb/nanopb third_party/nanopb
           git submodule add https://pigweed.googlesource.com/third_party/github/FreeRTOS/FreeRTOS-Kernel third_party/freertos
